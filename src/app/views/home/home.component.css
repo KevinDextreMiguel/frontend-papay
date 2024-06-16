@@ -1,0 +1,90 @@
+.hero {
+  background-color: #202c94;
+}
+
+h1 {
+  color: white;
+  font-size: 60px;
+}
+p {
+  color: white;
+  font-size: 20px;
+}
+
+button {
+  border-radius: 30px; /*dar forma a los bordes */
+}
+
+button:hover {
+  background-color: #6e6e6e;
+  color: white;
+}
+
+/*carrusel*/
+.carousel {
+  width: 50%;
+  margin: 50px auto 0;
+  overflow: hidden;
+}
+
+.carousel ul {
+  display: flex;
+  width: 400%;
+  animation: slide 20s infinite alternate ease-in-out;
+}
+.carousel li {
+  width: 100%;
+}
+
+.carousel img {
+  width: 70%;
+  height: 70%;
+  margin: auto;
+}
+
+@keyframes slide {
+  0% {
+    margin-left: 0;
+  }
+  20% {
+    margin-left: 0;
+  }
+
+  25% {
+    margin-left: -100%;
+  }
+  45% {
+    margin-left: -100%;
+  }
+
+  50% {
+    margin-left: -200%;
+  }
+  70% {
+    margin-left: -200%;
+  }
+
+  75% {
+    margin-left: -300%;
+  }
+  100% {
+    margin-left: -300%;
+  }
+}
+
+/*valores*/
+.valores {
+  padding: 5%;
+  padding-left: 10%;
+}
+
+.valores ul {
+  display: flex;
+}
+.valores ul li {
+  padding-right: 20%;
+}
+.valores h1 {
+  color: #202c94;
+  font-size: 30px;
+}
