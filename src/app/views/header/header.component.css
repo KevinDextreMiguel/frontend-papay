@@ -1,0 +1,9 @@
+.header {
+  background-color: #c7deef;
+  position: fixed; /*para que el header estè estàtico cuando se desplega*/
+  width: 100%;
+}
+
+.container img {
+  filter: hue-rotate(0deg);
+}
