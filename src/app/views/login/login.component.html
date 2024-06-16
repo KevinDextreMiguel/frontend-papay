@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+<div class="contenedor">
+  <div class="login-container">
+    <div class="login-info-container">
+      <h1 class="title">Log in with</h1>
+      <div class="social-login">
+        <div class="social-login-element">
+          <img src="assets/logos/google.svg" alt="google-image" />
+          <span>Google</span>
+        </div>
+        <div class="social-login-element">
+          <img src="assets/logos/facebook.svg" alt="facebook-image" />
+          <span>Facebook</span>
+        </div>
+      </div>
+      <p>or</p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Usuario</mat-label>
+        <input matInput placeholder="Username" [(ngModel)]="username" />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          matInput
+          placeholder="Password"
+          [(ngModel)]="password"
+        />
+      </mat-form-field>
+      <p>Forgot password? <span class="span">Click here</span></p>
+      <br />
+      <button class="btn" (click)="login()">Ingresar</button>
+      <p>Don't have an account? <span class="span">Sign Up</span></p>
+    </div>
+    <img class="image-container" src="images/login.svg" alt="" />
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,32 @@
+<div class="title-container">
+    <div class="title-container"><h1>Registro de Rol</h1></div>
+    <form [formGroup]="form" (submit)="registrar()">
+
+      <mat-form-field>
+        <mat-label>Rol</mat-label>
+        <mat-select placeholder="nombre de rol" formControlName="nameRole">
+          <mat-option *ngFor="let m of nombre" [value]="m.value">
+            {{ m.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('nameRole')?.hasError('required')">
+          El rol es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre de usuario</mat-label>
+      <mat-select formControlName="user">
+        <mat-option *ngFor="let c of listarNombres" [value]="c.idUser">
+          {{ c.nameUser }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('verde')?.hasError('required')">El zapato es obligatoria.</mat-error>
+    </mat-form-field>     
+      <br />
+      <div class="button-container">
+        <button class="btn">Aceptar</button>
+        <button class="btn" routerLink="/listarrole">Cancelar</button>
+      </div>
+    </form>
+  </div>
