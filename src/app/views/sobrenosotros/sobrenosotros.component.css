@@ -1,0 +1,146 @@
+.nosotros {
+  background-color: #202c94;
+}
+
+h1,
+p {
+  color: white;
+}
+
+/*css para section mision-vision*/
+.mision-vision {
+  display: flex;
+  padding-top: 5%;
+  padding-bottom: 10%;
+  padding-left: 15%;
+  padding-right: 1%;
+}
+
+.mision-vision h1 {
+  padding-left: 30%;
+  color: black;
+}
+
+.mision-vision p {
+  color: black;
+}
+
+.mision-vision img {
+  width: 100%;
+  height: 100%;
+}
+
+.mision {
+  width: 40%;
+}
+
+.vision {
+  width: 40%;
+  padding-left: 10%;
+}
+
+/*css para valores*/
+.valores {
+  background-color: #202c94;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  padding-left: 15%;
+  padding-right: 10%;
+}
+.titulo {
+  padding-left: 50%;
+  padding-bottom: 2%;
+}
+.titulo h1 {
+  font-size: 25px;
+}
+.valor {
+  display: flex;
+}
+
+.valores h5 {
+  color: white;
+}
+
+.responsabilidad {
+  padding-left: 20%;
+  padding-right: 15%;
+}
+
+/*para los perfiles*/
+/*para el tamaño de la iamgen*/
+.perfil {
+  padding-top: 2%;
+  padding-left: 10%;
+  padding-bottom: 5%;
+}
+
+.perfil .titulo {
+  color: black;
+  padding-left: 40%;
+  font-size: 30px;
+}
+.integrantes {
+  display: flex;
+}
+
+.seccion-perfil-usuario {
+  padding-left: 5%;
+}
+.perfil .redes-sociales {
+  padding-left: 15%;
+}
+.lider {
+  padding-left: 37%;
+}
+
+.lider h1 {
+  font-size: 30px;
+  color: #202c94;
+  padding-left: 12%;
+}
+.lider .redes-sociales {
+  padding-left: 5%;
+}
+
+.integrantes {
+  padding-top: 4%;
+}
+.seccion-perfil-usuario .perfil-usuario-portada {
+  width: 180px;
+  height: 180px;
+  border: 7px solid #ffffff;
+  background-color: #dfe5f2;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(5, 48, 240, 0.2);
+}
+
+/*para que la imagen puede salir con un borde circular*/
+.seccion-perfil-usuario .perfil-usuario-portada img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+/*para las redes sociales*/
+.boton-redes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  font-size: 1.3rem;
+}
+.seccion-perfil-usuario .boton-redes.facebook {
+  background: linear-gradient(45deg, #5aaeee, #0c08ef);
+}
+.seccion-perfil-usuario .boton-redes.github {
+  background-color: #35e1bf;
+  background: linear-gradient(45deg, #080808, #07090b);
+}
+
+.boton-redes.linkedin {
+  background: linear-gradient(45deg, #5aaeee, #0c08ef);
+}
