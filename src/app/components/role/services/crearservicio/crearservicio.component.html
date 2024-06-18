@@ -1,0 +1,81 @@
+<div class="title-container">
+  <div class="title-container"><h1>Registro</h1></div>
+  <form [formGroup]="form" (submit)="registrar()" class="example-form">
+    <mat-form-field class="example-full-width"  *ngIf="edicion" >
+      <mat-label>Codigo</mat-label>
+      <input matInput placeholder="idService" formControlName="idService" />
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <input matInput placeholder="Nombre del servicio" formControlName="nameService" />
+      <mat-error *ngIf="form.get('nameService')?.hasError('required')">
+        El nombre es obligatorio.</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input matInput placeholder="Descripcion del servicio" formControlName="descriptionService" />
+      <mat-error *ngIf="form.get('descriptionService')?.hasError('required')">
+        La descripcion es obligatorio.</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill" class="example-full-width">
+      <input
+        matInput placeholder="Fecha"
+       [matDatepicker]="picker"
+        formControlName="dateService"/>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="form.get('dateService')?.hasError('required')"
+        >La fecha es obligatoria.</mat-error
+      >
+    </mat-form-field>
+    <br/>
+    <mat-form-field appearance="fill" class="example-full-width">
+      <input matInput type="time" placeholder="Hora" formControlName="timeService"/>
+      <mat-hint>HH:MM</mat-hint>
+      <mat-error *ngIf="form.get('timeService')?.hasError('required')">
+        La hora es obligatoria.
+      </mat-error>
+    </mat-form-field>
+    <br/>
+    <mat-form-field >
+      <mat-label>Nombre usuario</mat-label>
+      <mat-select placeholder="idUser" formControlName="idUser">
+        <mat-option *ngFor="let m of listarusuario" [value]="m.idUser">
+          {{ m.nameUser }}
+        </mat-option>
+      </mat-select>
+          <mat-error *ngIf="form.get('idUser')?.hasError('required')">
+            Ingrese un valor válido.</mat-error
+          >
+      </mat-form-field>
+      <br/>
+
+      <mat-form-field >
+        <mat-label>Nombre tipo servicio</mat-label>
+        <mat-select placeholder="typeService" formControlName="typeService">
+          <mat-option *ngFor="let m of listartiposer" [value]="m.idTypeService">
+            {{ m.nameTypeService}}
+          </mat-option>
+        </mat-select>
+            <mat-error *ngIf="form.get('typeService')?.hasError('required')">
+              Ingrese un valor válido.</mat-error
+            >
+        </mat-form-field>
+        <br/>
+        <div class="button-container">
+          <button class="btn">Aceptar</button>
+          <button class="btn" routerLink="/listarservicio">Cancelar</button>
+        </div>
+
+
+  </form>
+</div>
+
+
