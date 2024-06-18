@@ -1,0 +1,29 @@
+
+  <div class="title-container">
+    <h1>Lista de usuarios</h1>
+  </div>
+<div class="container">
+  <div *ngFor="let item of datos" class="user-item">
+    <mat-card class="example-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{item.nameUser}}</mat-card-title>
+          <mat-card-subtitle>{{item.cellphoneUser}}</mat-card-subtitle>
+          <img mat-card-sm-image src="https://img.blogs.es/anexom/wp-content/uploads/2016/04/foto-perfil.jpg">
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>{{item.gmailUser}}</mat-card-content>
+      <div class="button">
+        <button class="btn" routerLink="/editaruser/{{item.idUser}}"><mat-icon>edit</mat-icon></button>
+        <button class="btn" (click)="eliminaruser(item.idUser)"><mat-icon>delete</mat-icon></button>
+      </div>
+    </mat-card>
+  </div>
+  <br>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+</div>
+
+
+
+
+
