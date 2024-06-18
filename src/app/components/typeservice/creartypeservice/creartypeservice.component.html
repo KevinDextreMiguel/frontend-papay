@@ -1,0 +1,34 @@
+<div class="title-container">
+    <div class="title-container"><h1>Registro de Tipo de servicio</h1></div>
+    <form [formGroup]="form" (submit)="registrar()">
+
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input matInput placeholder="Codigo" formControlName="codigo" />
+      </mat-form-field>
+
+
+      <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>tipo servicio</mat-label>
+          <mat-select formControlName="nameTypeService">
+            <mat-option *ngFor="let m of tipos" [value]="m.value">
+              {{ m.viewValue }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('nameTypeService')?.hasError('required')">El servicio es obligatorio.</mat-error>
+        </mat-form-field>
+
+      <br/>
+      <div class="button-container">
+        <button class="btn">Aceptar</button>
+        <button class="btn" routerLink="/listartypeservice">Cancelar</button>
+      </div>
+
+
+
+
+
+
+    </form>
+  </div>
