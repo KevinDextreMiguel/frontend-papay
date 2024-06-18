@@ -1,0 +1,31 @@
+<div class="title-container">
+    <h1>Lista de Entidades bancarias</h1>
+</div>
+<div class="container">
+
+    <div *ngFor="let item of datos" class="banking-item">
+        <mat-card class="example-card" appearance="outlined">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{ item.nameBankingEntity }}</mat-card-title>
+                <mat-card-subtitle>{{item.cellphoneBankingEntity}}</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>{{ item.descriptionBankingEntity }}</mat-card-content>
+            <mat-card-content>{{ item.websiteBankingEntity }}</mat-card-content>
+            <mat-card-content>{{ item.headquarterBankingEntity }}</mat-card-content>
+            <mat-card-content>{{ item.addressBankingEntity }}</mat-card-content>
+            <mat-card-actions>
+                <div class="button">
+                    <button class="btn"
+                        routerLink="/editarbankingentity/{{item.idBankingEntity}}"><mat-icon>edit</mat-icon></button>
+                    <button class="btn"
+                        (click)="deleteBanking(item.idBankingEntity)"><mat-icon>delete</mat-icon></button>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+    <br>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+</div>
