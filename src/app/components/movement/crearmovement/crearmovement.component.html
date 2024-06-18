@@ -1,0 +1,49 @@
+<div class="title-container">
+  <div class="title-container"><h1>Registro de Movimiento</h1></div>
+  <form [formGroup]="form" (submit)="registrar()">
+
+    <br />
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Tipo de Movimiento"
+        formControlName="typeMovement"
+      />
+      <mat-error *ngIf="form.get('typeMovement')?.hasError('required')">
+        El tipo es obligatorio.</mat-error
+      >
+      <mat-error *ngIf="form.get('typeMovement')?.hasError('pattern')">No debe contener números.</mat-error>
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field>
+      <input matInput placeholder="Monto" formControlName="amountMovement" />
+      <mat-error *ngIf="form.get('amountMovement')?.hasError('required')">El monto es obligatoria.</mat-error>
+      <mat-error *ngIf="form.get('amountMovement')?.hasError('pattern')">Datos incorrectos.</mat-error>
+
+    </mat-form-field>
+    <br />
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Numero de Cuenta Bancaria</mat-label>
+      <mat-select formControlName="numberAccountBanking">
+        <mat-option
+          *ngFor="let a of listaAccountBanking"
+          [value]="a.numberAccountBanking"
+        >
+          {{ a.numberAccountBanking }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('numberAccountBanking')?.hasError('required')"
+        >El numero cuenta bancaria es obligatoria.</mat-error
+      >
+    </mat-form-field>
+
+    <br />
+    <div class="button-container">
+      <button class="btn">Aceptar</button>
+      <button class="btn" routerLink="/listarmovement">Cancelar</button>
+    </div>
+  </form>
+</div>
