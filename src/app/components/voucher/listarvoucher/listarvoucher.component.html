@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="title-container"><h1>Lista de vouchers</h1></div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="dateVoucher">
+           <th mat-header-cell *matHeaderCellDef> fecha </th>
+           <td mat-cell *matCellDef="let element"> {{element.dateVoucher}} </td>
+         </ng-container>
+
+          <ng-container matColumnDef="hourVoucher">
+           <th mat-header-cell *matHeaderCellDef> horafecha</th>
+           <td mat-cell *matCellDef="let element"> {{element.hourVoucher|date:'hh:mm'}} </td>
+          </ng-container>
+          <ng-container matColumnDef="destinationAccountVoucher">
+            <th mat-header-cell *matHeaderCellDef> destinationAccountVoucher </th>
+            <td mat-cell *matCellDef="let element"> {{element.destinationAccountVoucher}} </td>
+           </ng-container>
+           <ng-container matColumnDef="amountVoucher">
+            <th mat-header-cell *matHeaderCellDef> amountVoucher </th>
+            <td mat-cell *matCellDef="let element"> {{element.amountVoucher}} </td>
+           </ng-container>
+           <ng-container matColumnDef="numberOperationVoucher">
+            <th mat-header-cell *matHeaderCellDef> numberOperationVoucher</th>
+            <td mat-cell *matCellDef="let element"> {{element.numberOperationVoucher}} </td>
+           </ng-container>
+            <ng-container matColumnDef="serviceB">
+            <th mat-header-cell *matHeaderCellDef> idservicio </th>
+            <td mat-cell *matCellDef="let element"> {{ element.idservicio?.nameService }} </td>
+           </ng-container>
+
+
+           <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef> Editar </th>
+            <td mat-cell *matCellDef="let element">
+              <button class="btn" [routerLink]="['/editarvoucher', element.idVoucher]">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+            <td mat-cell *matCellDef="let element">
+              <button class="btn" (click)="eliminarvoucher(element.idVoucher)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+         </table>
+         <br>
+         <mat-paginator [pageSizeOptions]="[4, 20, 100]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+
+
+
