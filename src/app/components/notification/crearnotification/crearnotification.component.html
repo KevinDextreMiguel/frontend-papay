@@ -1,0 +1,58 @@
+<div class="title-container">
+  <div class="title-container"><h1>Registro de notificacion</h1></div>
+  <form [formGroup]="form" (submit)="registrar()">
+    <mat-form-field class="example-full-width" *ngIf="edicion">
+      <mat-label>Codigo</mat-label>
+      <input
+        matInput
+        placeholder="idNotification"
+        formControlName="idNotification"
+      />
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Mensaje de notificacion"
+        formControlName="messageNotification"
+      />
+      <mat-error *ngIf="form.get('messageNotification')?.hasError('required')">
+        El mensaje es obligatorio.</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Estado notificacion</mat-label>
+      <mat-select
+        placeholder="Estado notificacion"
+        formControlName="stateNotification"
+      >
+        <mat-option *ngFor="let e of estado" [value]="e.value">
+          {{ e.viewValue }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('stateNotification')?.hasError('required')">
+        El estado de notificacion es obligatorio</mat-error
+      >
+    </mat-form-field>
+
+    <br />
+    <mat-form-field>
+      <mat-label>Tipo Movimiento</mat-label>
+      <mat-select placeholder="Tipo Movimiento" formControlName="movement">
+        <mat-option *ngFor="let m of listarmovimen" [value]="m.idMovement">
+          {{ m.typeMovement }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('movement')?.hasError('required')">
+        El tipo de movimiento es obligatorio.</mat-error
+      >
+    </mat-form-field>
+
+    <br />
+    <div class="button-container">
+      <button class="btn">Aceptar</button>
+      <button class="btn" routerLink="/listarnotification">Cancelar</button>
+    </div>
+  </form>
+</div>
