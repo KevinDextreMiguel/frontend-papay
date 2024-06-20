@@ -1,0 +1,67 @@
+<div class="title-container">
+    <div class="title-container" *ngIf="!edicion"><h1>Registro de Usuario</h1></div>
+    <div class="title-container" *ngIf="edicion"><h1> Usuario</h1></div>
+    <form [formGroup]="form" (submit)="registrar()">
+        <mat-form-field class="example-full-width"  *ngIf="edicion" >
+            <mat-label>Codigo</mat-label>
+            <input matInput placeholder="idUser" formControlName="idUser" />
+          </mat-form-field>
+          <br/>
+        <mat-form-field>
+            <input matInput placeholder="Nombre" formControlName="nameUser" />
+            <mat-error *ngIf="form.get('nameUser')?.hasError('required')">El nombre es obligatorio.</mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+            <input matInput placeholder="Apellidos" formControlName="lastnameUser" />
+            <mat-error *ngIf="form.get('lastnameUser')?.hasError('required')">El apellido es obligatorio.</mat-error>
+        </mat-form-field>
+        <br />
+
+            <mat-form-field appearance="fill" class="example-full-width">
+                <input matInput placeholder="Fecha de nacimiento" [matDatepicker]="picker" formControlName="dateBirth" [max]="maxFecha" />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+
+                <mat-error *ngIf="form.get('dateBirth')?.hasError('required')">La fecha de nacimiento es obligatoria.</mat-error>
+            </mat-form-field>
+<br />
+<mat-form-field class="example-full-width">
+    <mat-label>Ciudad</mat-label>
+    <mat-select formControlName="cityUser">
+        <mat-option *ngFor="let m of ciudades" [value]="m.value">
+            {{ m.viewValue }}
+        </mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.get('cityUser')?.hasError('required')">La ciudad es obligatorio.</mat-error>
+</mat-form-field>
+        <br />
+
+        <mat-form-field>
+            <input matInput placeholder="telefono" formControlName="cellphoneUser" />
+            <mat-error *ngIf="form.get('cellphoneUser')?.hasError('required')">El telefono es obligatorio.</mat-error>
+            <mat-error *ngIf="form.get('cellphoneUser')?.hasError('pattern')">Datos incorrectos.</mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+            <input matInput placeholder="gmail" formControlName="gmailUser" />
+            <mat-error *ngIf="form.get('gmailUser')?.hasError('required')">El gmail es obligatorio.</mat-error>
+            <mat-error *ngIf="form.get('gmailUser')?.hasError('email')">Debe ser un gmail.</mat-error>
+        </mat-form-field>
+        <br />
+
+
+        <mat-form-field  *ngIf="ver">
+            <input type="password" matInput placeholder="Contrasenia" formControlName="password" />
+            <mat-error *ngIf="form.get('password')?.hasError('required')">La Contrasenia es obligatorio.</mat-error>
+        </mat-form-field>
+        <br/>
+        <div class="button-container">
+             <button class="btn">Aceptar</button>
+            <button class="btn" routerLink="/listaruser">Cancelar</button>
+        </div>
+    </form>
+</div>

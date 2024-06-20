@@ -1,0 +1,45 @@
+.title-container {
+
+    text-align: center;
+
+    margin-bottom: 40px; /* Increase the margin-bottom to move the title lower */
+
+    margin-top: 60px;  /* Add a margin-top to further position it down the page */
+
+   }
+
+
+
+   .title {
+
+    font-family: 'Poppins', sans-serif;
+
+    font-weight: 600;
+
+    font-size: 2em;
+
+    color: #333;
+
+   }
+
+   mat-form-field {
+
+    width: 40%;
+
+   }
+   .button-container {
+    display: flex; /* Usar flexbox para centrar los botones */
+    justify-content: center; /* Centrar los botones horizontalmente */
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 20px; /* Añadir un poco de espacio superior si es necesario */
+  }
+
+  .btn {
+    padding: 10px 20px;
+    color: #202C94;
+    background-color: #C7DEEF; /* Cambia el color aquí */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+ }

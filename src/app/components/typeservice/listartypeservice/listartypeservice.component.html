@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="title-container"><h1>Lista de Tipos de Servicios</h1></div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+
+
+          <ng-container matColumnDef="nameTypeService">
+           <th mat-header-cell *matHeaderCellDef> Nombre </th>
+           <td mat-cell *matCellDef="let element"> {{element.nameTypeService}} </td>
+         </ng-container>
+
+        <ng-container matColumnDef="editar">
+          <th mat-header-cell *matHeaderCellDef>Editar</th>
+          <td mat-cell *matCellDef="let element">
+            <button class="btn"  [routerLink]="['/editatypeservice', element.idShoe]">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="eliminar">
+          <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+          <td mat-cell *matCellDef="let element">
+            <button class="btn"  (click)="eliminar(element.idTypeService)">
+              <mat-icon>delete_sweep</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+         </table>
+         <br>
+         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+
+
