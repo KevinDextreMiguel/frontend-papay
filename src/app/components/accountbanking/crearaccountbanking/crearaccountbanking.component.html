@@ -1,0 +1,70 @@
+<div class="title-container">
+  <div class="title-container"><h1>Registro de Cuenta Bancaria</h1></div>
+  <form [formGroup]="form" (submit)="registrar()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Entidad Bancaria</mat-label>
+      <mat-select formControlName="entityBank">
+        <mat-option
+          *ngFor="let c of listaEntidadBancaria"
+          [value]="c.idBankingEntity"
+        >
+          {{ c.nameBankingEntity }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('entityBank')?.hasError('required')"
+        >La entidad bancaria es obligatoria.</mat-error
+      >
+    </mat-form-field>
+    <br />
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Numero de Cuenta"
+        formControlName="numberAccountBanking"
+      />
+      <mat-error *ngIf="form.get('numberAccountBanking')?.hasError('required')"
+        >Numero de cuenta es obligatoria.</mat-error
+      >
+      <!-- <mat-error *ngIf="form.get('numberAccountBanking')?.hasError('pattern')">Datos incorrectos.</mat-error>-->
+    </mat-form-field>
+
+    <br />
+    <mat-form-field>
+      <mat-label>Tipo de cuenta bancaria</mat-label>
+      <mat-select
+        placeholder="tipo de cuenta bancaria"
+        formControlName="typeAccountBanking"
+      >
+        <mat-option *ngFor="let m of tipos" [value]="m.value">
+          {{ m.viewValue }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('typeAccountBanking')?.hasError('required')">
+        El tipo de cuenta bancaria es obligatorio.</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="monto"
+        formControlName="amountAccountBanking"
+      />
+      <mat-label>Monto</mat-label>
+      <mat-error *ngIf="form.get('amountAccountBanking')?.hasError('required')"
+        >El monto es obligatoria.</mat-error
+      >
+      <mat-error *ngIf="form.get('amountAccountBanking')?.hasError('pattern')"
+        >Datos incorrectos.</mat-error
+      >
+      <!--<mat-error *ngIf="form.get('amountAccountBanking')?.hasError('min')">No puede ser negativo.</mat-error>-->
+    </mat-form-field>
+    <br />
+
+    <div class="button-container">
+      <button class="btn">Aceptar</button>
+      <button class="btn" routerLink="/listaraccountbanking">Cancelar</button>
+    </div>
+  </form>
+</div>
